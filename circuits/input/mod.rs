@@ -429,8 +429,11 @@ pub(crate) mod tests {
     #[tokio::test]
     #[cfg_attr(feature = "ci", ignore)]
     async fn test_get_header() {
-        let data_fetcher = super::InputDataFetcher::default();
-        let signed_header = data_fetcher.get_signed_header_from_number(3000).await;
+        let data_fetcher = super::InputDataFetcher {
+            mode: super::InputDataMode::Rpc,
+            ..Default::default()
+        };
+        let signed_header = data_fetcher.get_signed_header_from_number(1126800).await;
         println!(
             "Header: {:?}",
             String::from_utf8(hex::encode(signed_header.header.hash()))

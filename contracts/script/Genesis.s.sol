@@ -13,11 +13,11 @@ contract GenesisScript is Script {
         vm.startBroadcast();
         // Use the below to interact with an already deployed ZK light client.
         TendermintX lightClient = TendermintX(
-            0x0E9187150C3eEFcBce4E2a15aEC0136f45f4d6B2
+            0x59eE2D9CFaC933c79Cc1D1d6767679636c0b539D
         );
 
-        uint64 height = 1;
-        bytes32 header = hex"6be39efd10ba412a9db5288488303f5dd32cf386707a5bef33617f4c43301872";
+        uint64 height = 1126800;
+        bytes32 header = hex"1fbfaed36f6f96a746427345658e67047f6c13b88aaaa4e4ee5ca794c611e239";
         lightClient.setGenesisHeader(height, header);
     }
 }
